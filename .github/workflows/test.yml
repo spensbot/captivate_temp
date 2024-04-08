@@ -44,3 +44,11 @@ jobs:
         run: |
           npm run package
           npm exec tsc
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: |
+            release/build/*.AppImage
+            release/build/*.dmg
+            release/build/*.exe
