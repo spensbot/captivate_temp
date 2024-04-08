@@ -48,6 +48,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
+          name: Captivate-${{ runner.os }}
           path: |
             release/build/*.AppImage
             release/build/*.dmg
