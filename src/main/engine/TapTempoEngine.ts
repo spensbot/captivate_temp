@@ -16,7 +16,7 @@ export default class TapTempoEngine {
   private sessionTaps = 0
   private lastTapTime = 0
 
-  tap(setBpm: (newBPM: number) => void) {
+  tap(setBpm: (newBPM: number) => void, setPhase: (newPhase: number) => void) {
     const now = Date.now()
     this.sessionTaps += 1
 
@@ -52,6 +52,8 @@ export default class TapTempoEngine {
         this.begin_session(now)
       }
     }
+
+    setPhase(this.sessionTaps);
 
     this.lastTapTime = now
   }

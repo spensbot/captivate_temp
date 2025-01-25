@@ -43,6 +43,9 @@ const _tapTempoEngine = new TapTempoEngine()
 function _tapTempo() {
   _tapTempoEngine.tap((newBpm) => {
     _nodeLink.setTempo(newBpm)
+  }, (newPhase) => {
+    const info = _nodeLink.getSessionInfoCurrent();
+    _nodeLink.forceBeat(info.beats - info.phase + newPhase);
   })
 }
 let _connectionManager = new ConnectionManager({
