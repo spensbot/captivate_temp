@@ -53,7 +53,7 @@ export default class TapTempoEngine {
       }
     }
 
-    setPhase(this.sessionTaps);
+    setPhase(this.sessionTaps - 1);
 
     this.lastTapTime = now
   }
