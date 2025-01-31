@@ -33,10 +33,12 @@ export default function FixtureCursor({ index }: { index: number }) {
   const subWindows = fixtureType.subFixtures
     .map(sub => sub.relative_window ? window2DToParentCoords(sub.relative_window, fixture.window) : undefined)
 
+  const color = isSelected ? '#fff' : '#fff7';
+
   return <div>
     <div style={{ zIndex: -2 }}>
       {subWindows.map(subWindow => subWindow ? (
-        <Cursor x={subWindow.x?.pos ?? x} y={subWindow.y?.pos ?? y} />
+        <Cursor x={subWindow.x?.pos ?? x} y={subWindow.y?.pos ?? y} color={color} />
       ) : undefined)}
     </div>
     {isSelected ? (
@@ -47,7 +49,7 @@ export default function FixtureCursor({ index }: { index: number }) {
       </div>
     ) : (
       <div style={{ zIndex: 1 }}>
-        <Cursor onClick={onClick} x={x} y={y} color="#fff7" />
+        <Cursor onClick={onClick} x={x} y={y} color={color} />
       </div>
     )}
   </div>
