@@ -12,7 +12,7 @@ export type Window2D_t = {
 
 export function windowToParentCoords(relative: Window, parent: Window): Window {
   return {
-    pos: parent.pos + relative.pos * parent.width,
+    pos: parent.pos + (relative.pos - 0.5) * parent.width,
     width: relative.width * parent.width
   }
 }
